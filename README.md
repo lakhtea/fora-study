@@ -9,6 +9,8 @@ npm install
 npm run typecheck     # everything type-checks, including the buggy reps (that's on purpose)
 ```
 
+Don't use `npm test` as an entry point: it runs every suite in the repo, which includes the `check` tests (they fail on pristine reps by design) and the app acceptance tests (they fail until you build the apps), and it takes well over five minutes because the bug tests use real timers. Use the per-item commands below.
+
 Node 18 or newer. Tests run under jsdom with `TZ=America/New_York` (date bugs depend on it): `TZ=America/New_York npm run verify 1`.
 
 ## Layout
@@ -35,6 +37,8 @@ To match the real environment, paste a rep's `types.ts`, `api/`, `components/`, 
 ## How a build app works
 
 `npm run app 2`, read `SPEC.md`, start a 60-minute timer, build `App.tsx` plus whatever components and `api/client.ts` you want, verify each behavior in the browser as you go. `npm run accept 2` runs the acceptance tests; the spec names the labels they look for. The naive version of app 04 is also the lab for the profiling drills in `interviews/round-2-react-intensive.md`.
+
+One honest caveat: the acceptance tests were written from the specs, not validated against a finished implementation (the reps were; the apps are yours to build). If an assertion fails for a reason that looks like the test rather than your code, the spec is authoritative; note it in the tracker and fix the test. App 05's rollback-on-failed-cancel behavior is in the spec but not asserted by its test; check that one by hand.
 
 ## Generating re-drill reps
 
