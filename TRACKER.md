@@ -32,10 +32,10 @@ Protocol and budget: `interviews/round-1-debugging.md`. Each rep: 30-minute time
 - [ ] Rep 16 Commission rules: keystroke state too high, a nullish default inventing a rate, a memo on half its inputs
 - [ ] Rep 17 Import clients: defaults spread over the data, a wrapper key that isn't there, rows keyed by a repeating field
 - [ ] Rep 18 Messages: async subscription with no cleanup, Title Case union vs lowercase wire, thread-switch race
-- [ ] Rep 19 Availability calendar (generate: `generator/GENERATE-REP.md`, REP=19; grade with the two-minute checklist below; run). Every class in the taxonomy has now been seen once.
-- [ ] Rep 20 Team leaderboard (generate, grade, run)
-- [ ] Rep 21 Refund requests (generate, grade, run)
-- [ ] Rep 22 Trip costs (generate, grade, run)
+- [ ] Rep 19 Availability: reading value instead of checked, a non-null assertion across a month change, local midnights across DST. Every class in the taxonomy has now been seen once.
+- [ ] Rep 20 Team leaderboard: a context value carrying a clock, an index signature promising every advisor is ranked, reverse in render
+- [ ] Rep 21 Refund requests: index keys with an uncontrolled textarea, a 403 collapsed into a no-op, a 409 with no path back
+- [ ] Rep 22 Trip costs (generate: `generator/GENERATE-REP.md`, REP=22; grade with the two-minute checklist below; run)
 - [ ] Rep 23 Supplier contacts (generate, grade, run)
 - [ ] Rep 24 Hackathon votes (generate, grade, run)
 - [ ] Rep 25 Final mock: generated, then run as the full 45 minutes with Claude as the interviewer (intros, three bugs, Q&A), graded on Fora's four criteria (completeness and verification, communication, technical knowledge, debugging skills)
