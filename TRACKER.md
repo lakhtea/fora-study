@@ -29,10 +29,10 @@ Protocol and budget: `interviews/round-1-debugging.md`. Each rep: 30-minute time
 - [ ] Rep 13 Travelers: a hook inside a condition, an index signature promising every expiry, calendar-month counting at a boundary
 - [ ] Rep 14 Group rooms: a form that keeps state across a change of subject, two numbers in the wrong order, no path for a rejected request
 - [ ] Rep 15 Price Drop: a form submit with its default, a reference typed as a number, a date-only string parsed as UTC
-- [ ] Rep 16 Commission rules (generate: `generator/GENERATE-REP.md`, REP=16; grade with the two-minute checklist below; run)
-- [ ] Rep 17 Client import (generate, grade, run)
-- [ ] Rep 18 Messages thread (generate, grade, run)
-- [ ] Rep 19 Availability calendar (generate, grade, run). Every class in the taxonomy has now been seen once.
+- [ ] Rep 16 Commission rules: keystroke state too high, a nullish default inventing a rate, a memo on half its inputs
+- [ ] Rep 17 Import clients: defaults spread over the data, a wrapper key that isn't there, rows keyed by a repeating field
+- [ ] Rep 18 Messages: async subscription with no cleanup, Title Case union vs lowercase wire, thread-switch race
+- [ ] Rep 19 Availability calendar (generate: `generator/GENERATE-REP.md`, REP=19; grade with the two-minute checklist below; run). Every class in the taxonomy has now been seen once.
 - [ ] Rep 20 Team leaderboard (generate, grade, run)
 - [ ] Rep 21 Refund requests (generate, grade, run)
 - [ ] Rep 22 Trip costs (generate, grade, run)
