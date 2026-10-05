@@ -15,23 +15,37 @@ export function AddItemPanel({ dayCount, onAdd }: AddItemPanelProps) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    let cancelled = false;
     setLoading(true);
     fetchSuppliers(category).then((rows) => {
-      setSuppliers(rows);
-      setLoading(false);
+      if (!cancelled) {
+        setSuppliers(rows);
+        setLoading(false);
+      }
     });
+    return () => {
+      cancelled = true;
+    };
   }, [category]);
 
   return (
     <div className="panel">
       <h2>Add to itinerary</h2>
       <div className="toolbar">
-        <select value={category} onChange={(e) => setCategory(e.target.value as SupplierCategory)} aria-label="Supplier category">
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value as SupplierCategory)}
+          aria-label="Supplier category"
+        >
           <option value="hotel">Hotels</option>
           <option value="activity">Activities</option>
           <option value="transfer">Transfers</option>
         </select>
-        <select value={dayIndex} onChange={(e) => setDayIndex(Number(e.target.value))} aria-label="Target day">
+        <select
+          value={dayIndex}
+          onChange={(e) => setDayIndex(Number(e.target.value))}
+          aria-label="Target day"
+        >
           {Array.from({ length: dayCount }, (_, i) => (
             <option key={i} value={i}>
               Day {i + 1}
@@ -48,7 +62,11 @@ export function AddItemPanel({ dayCount, onAdd }: AddItemPanelProps) {
             </span>
             <span>
               {money(supplier.price)}{" "}
-              <button type="button" className="link" onClick={() => onAdd(supplier, dayIndex)}>
+              <button
+                type="button"
+                className="link"
+                onClick={() => onAdd(supplier, dayIndex)}
+              >
                 Add
               </button>
             </span>

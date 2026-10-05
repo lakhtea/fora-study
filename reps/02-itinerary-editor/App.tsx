@@ -26,8 +26,12 @@ export default function App() {
     return <div className="page muted">Loading itinerary</div>;
   }
 
-  const updateItems = (updater: (items: ItineraryItem[]) => ItineraryItem[]) => {
-    setItinerary((current) => (current ? { ...current, items: updater(current.items) } : current));
+  const updateItems = (
+    updater: (items: ItineraryItem[]) => ItineraryItem[],
+  ) => {
+    setItinerary((current) =>
+      current ? { ...current, items: updater(current.items) } : current,
+    );
   };
 
   const handleAdd = (supplier: Supplier, dayIndex: number) => {
@@ -44,17 +48,22 @@ export default function App() {
 
   const handleRemove = (id: number) => {
     updateItems((items) => items.filter((item) => item.id !== id));
+    setSelectedItemId((current) => (current === id ? null : current));
   };
 
   const handleMove = (id: number, direction: -1 | 1) => {
     updateItems((items) => {
       const index = items.findIndex((item) => item.id === id);
       const item = items[index];
-      const siblings = items.filter((candidate) => candidate.dayIndex === item.dayIndex);
+      const siblings = items.filter(
+        (candidate) => candidate.dayIndex === item.dayIndex,
+      );
       const position = siblings.findIndex((candidate) => candidate.id === id);
       const swapWith = siblings[position + direction];
       if (!swapWith) return items;
-      const swapIndex = items.findIndex((candidate) => candidate.id === swapWith.id);
+      const swapIndex = items.findIndex(
+        (candidate) => candidate.id === swapWith.id,
+      );
       const next = [...items];
       next[index] = swapWith;
       next[swapIndex] = item;
@@ -63,7 +72,9 @@ export default function App() {
   };
 
   const handleNoteBlur = (id: number, note: string) => {
-    updateItems((items) => items.map((item) => (item.id === id ? { ...item, note } : item)));
+    updateItems((items) =>
+      items.map((item) => (item.id === id ? { ...item, note } : item)),
+    );
   };
 
   const total = itinerary.items.reduce((sum, item) => sum + item.price, 0);
@@ -74,7 +85,8 @@ export default function App() {
         <div>
           <h1>{itinerary.title}</h1>
           <div className="muted">
-            {itinerary.clientName}, {itinerary.days.length} days, {itinerary.items.length} items
+            {itinerary.clientName}, {itinerary.days.length} days,{" "}
+            {itinerary.items.length} items
           </div>
         </div>
         <div className="total" aria-label="Trip total">
@@ -92,7 +104,11 @@ export default function App() {
           onNoteBlur={handleNoteBlur}
         />
         <div className="stack">
-          <ItemPanel items={itinerary.items} days={itinerary.days} selectedItemId={selectedItemId} />
+          <ItemPanel
+            items={itinerary.items}
+            days={itinerary.days}
+            selectedItemId={selectedItemId}
+          />
           <AddItemPanel dayCount={itinerary.days.length} onAdd={handleAdd} />
         </div>
       </div>

@@ -9,9 +9,17 @@ interface ItemPanelProps {
 
 export function ItemPanel({ items, days, selectedItemId }: ItemPanelProps) {
   if (selectedItemId === null) {
-    return <div className="panel empty">Select an item to see its details.</div>;
+    return (
+      <div className="panel empty">Select an item to see its details.</div>
+    );
   }
-  const item = items.find((candidate) => candidate.id === selectedItemId)!;
+  const item =
+    items.find((candidate) => candidate.id === selectedItemId) ?? null;
+  if (item === null) {
+    return (
+      <div className="panel empty">Select an item to see its details.</div>
+    );
+  }
   return (
     <div className="panel">
       <h2>{item.title}</h2>
