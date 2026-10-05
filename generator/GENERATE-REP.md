@@ -4,7 +4,7 @@ Paste everything below the line into Claude Code with REP set. It writes the rep
 
 ---
 
-You are generating practice project number REP = <set me, 07 to 25> for a timed React debugging interview, into an existing repository. Read `generator/REP-CARDS.md` for the card that matches REP: it fixes the page, the three bug classes, and the compound ingredient for each. Read `reps/01-clients-refresh/` and `reps/02-itinerary-editor/` end to end first: they are the standard for code shape, ticket voice, key format, tests, and the solution overlay. Match them.
+You are generating practice project number REP = <set me, 26 or higher> for a timed React debugging interview, into an existing repository. I will name the classes for slots A, B, and C (or say "any", in which case pick classes from the taxonomy below that the built reps have covered least) and a page from the advisor portal that none of the existing reps uses; `generator/REP-CARDS.md` shows how a card is written and the pages already used. Read `reps/01-clients-refresh/` and `reps/02-itinerary-editor/` end to end first: they are the standard for code shape, ticket voice, key format, tests, and the solution overlay. Match them.
 
 REPO LAYOUT (exactly this, inside `reps/<REP>-<slug>/`, slug from the card)
 - `App.tsx` default export, the page shell

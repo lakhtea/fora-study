@@ -35,17 +35,17 @@ Protocol and budget: `interviews/round-1-debugging.md`. Each rep: 30-minute time
 - [ ] Rep 19 Availability: reading value instead of checked, a non-null assertion across a month change, local midnights across DST. Every class in the taxonomy has now been seen once.
 - [ ] Rep 20 Team leaderboard: a context value carrying a clock, an index signature promising every advisor is ranked, reverse in render
 - [ ] Rep 21 Refund requests: index keys with an uncontrolled textarea, a 403 collapsed into a no-op, a 409 with no path back
-- [ ] Rep 22 Trip costs (generate: `generator/GENERATE-REP.md`, REP=22; grade with the two-minute checklist below; run)
-- [ ] Rep 23 Supplier contacts (generate, grade, run)
-- [ ] Rep 24 Hackathon votes (generate, grade, run)
-- [ ] Rep 25 Final mock: generated, then run as the full 45 minutes with Claude as the interviewer (intros, three bugs, Q&A), graded on Fora's four criteria (completeness and verification, communication, technical knowledge, debugging skills)
+- [ ] Rep 22 Trip costs: derived state in an effect missing the rate, a decimal-string rate through any, cents summed as euros
+- [ ] Rep 23 Supplier contacts: a handler invoked at render through an any-typed tracker, a prop name hidden by a wide props type, the original spread over the edits
+- [ ] Rep 24 Hackathon votes: an interval never cleared, Title Case literals vs a lowercase wire, the biggest category landing last
+- [ ] Rep 25 Final mock (Today dashboard: stale interval closure, non-null on a completed task, two objects merged with a shared key): run as the full 45 minutes with Claude as the interviewer (intros, three bugs, Q&A), graded on Fora's four criteria (completeness and verification, communication, technical knowledge, debugging skills)
 - [ ] At least three reps run inside the CoderPad sandbox (files pasted into a React TypeScript pad) with the share layout rehearsed
 - [ ] Six-step protocol said aloud from memory, cold, three days in a row
 - [ ] Array warm-up `coding/01-arrays-warmup` passing, with memory narrated for each function
 - [ ] The ten Q&A questions in `interviews/round-1-debugging.md` read; three chosen and said aloud
 - [ ] Classes to re-drill (fill in as you go): ____________________. Each one re-drilled in a later rep or a generated variant.
 
-Two-minute grade for a generated rep (any "no" means run `generator/UPGRADE-REP.md` or regenerate): tickets have a named non-developer reporter, concrete values, no code words; each ticket describes something on screen with one breadcrumb; advisor-portal page; `api/server.ts` and `api/client.ts` present; `npm run verify N` passes; 60 seconds of clicking through the README behaviors finds nothing broken outside the tickets.
+Two-minute grade for any rep you generate yourself for re-drills (any "no" means run `generator/UPGRADE-REP.md` or regenerate): tickets have a named non-developer reporter, concrete values, no code words; each ticket describes something on screen with one breadcrumb; advisor-portal page; `api/server.ts` and `api/client.ts` present; `npm run verify N` passes; 60 seconds of clicking through the README behaviors finds nothing broken outside the tickets.
 
 ## 2a. Round 2, hour 1: API Design (60 minutes)
 

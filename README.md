@@ -15,7 +15,7 @@ Node 18 or newer. Tests run under jsdom with `TZ=America/New_York` (date bugs de
 
 | Folder | What's in it | Commands |
 | --- | --- | --- |
-| `reps/` | Debugging reps for round 1. Each is one advisor-portal page with exactly three planted bugs (React, TypeScript, logic), PM-voiced tickets in `BUGS.md`, a full answer key in `KEY.md`, and hidden tests in `.verify/`. Reps 01 to 21 are built and verified; 22 to 25 are designed in `generator/REP-CARDS.md` and generated with `generator/GENERATE-REP.md`. | `npm run rep N` (dev server), `npm run verify N` (prove the bugs reproduce on pristine code), `npm run check N` (acceptance tests for your fixes), `npm run solution N` (prove the key's fixes), `npm run reset N` (git restore) |
+| `reps/` | Debugging reps for round 1. Each is one advisor-portal page with exactly three planted bugs (React, TypeScript, logic), PM-voiced tickets in `BUGS.md`, a full answer key in `KEY.md`, and hidden tests in `.verify/`. All 25 reps are built and verified. `generator/GENERATE-REP.md` and the cards in `generator/REP-CARDS.md` are for re-drill variants of classes you miss. | `npm run rep N` (dev server), `npm run verify N` (prove the bugs reproduce on pristine code), `npm run check N` (acceptance tests for your fixes), `npm run solution N` (prove the key's fixes), `npm run reset N` (git restore) |
 | `apps/` | Five small apps to build from a spec in 60 minutes, each a different skill: async lists, state architecture with autosave, forms, performance with windowing, async job workflows. Mock backend provided; you write the UI and client. | `npm run app N`, `npm run accept N` |
 | `coding/` | Five typed, machine-checked problems: Fora-style array warm-ups, the Thumbtack review-search arc (staged), the ranked-window Map-and-cursor problem, debounce plus latest-only, Map aggregation. Solutions in `SOLUTION.md`. | `npm run coding N` |
 | `api-design/` | The 60-minute script, conventions, probes, a rubric, eight Fora-flavored prompts, two model answers. | run with Claude as interviewer |
@@ -36,6 +36,6 @@ To match the real environment, paste a rep's `types.ts`, `api/`, `components/`, 
 
 `npm run app 2`, read `SPEC.md`, start a 60-minute timer, build `App.tsx` plus whatever components and `api/client.ts` you want, verify each behavior in the browser as you go. `npm run accept 2` runs the acceptance tests; the spec names the labels they look for. The naive version of app 04 is also the lab for the profiling drills in `interviews/round-2-react-intensive.md`.
 
-## Generating reps 07 to 25
+## Generating re-drill reps
 
-In Claude Code at the repo root, paste `generator/GENERATE-REP.md` with `REP` set to the next number. It writes the rep in this layout and must pass typecheck, `verify`, and `solution` before it hands over. Grade it with the two-minute checklist in `TRACKER.md` before you start the timer.
+All 25 are built. For a class you keep missing, paste `generator/GENERATE-REP.md` into Claude Code with REP set to 26 or higher and tell it which class to put in slot A (or B, or C) in a new setting. It writes the rep in this layout and must pass typecheck, `verify`, and `solution` before it hands over. Grade it with the two-minute checklist in `TRACKER.md` before you start the timer.
