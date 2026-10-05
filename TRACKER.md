@@ -20,10 +20,10 @@ Protocol and budget: `interviews/round-1-debugging.md`. Each rep: 30-minute time
 - [ ] Rep 04 Hotel search: effect deps, [object Object] from a lying type, concatenating reduce
 - [ ] Rep 05 Commissions: listener without cleanup, cast letting "Paid" through, midnight boundary vs timestamps
 - [ ] Rep 06 Client settings: props copied into state once, index signature lie, save stuck on rejection
-- [ ] Rep 07 Trips timeline (generate: `generator/GENERATE-REP.md`, REP=07), graded with the two-minute checklist below, then run
-- [ ] Rep 08 Payout dashboard (generate, grade, run)
-- [ ] Rep 09 Supplier onboarding (generate, grade, run)
-- [ ] Rep 10 Share view (generate, grade, run)
+- [ ] Rep 07 Trips timeline: delay instead of debounce, two optional names for one prop, date-only string parsed as UTC
+- [ ] Rep 08 Payout dashboard: controlled-then-uncontrolled input, string id through a union type, memo missing a dependency
+- [ ] Rep 09 Supplier onboarding: memo defeated by inline props, non-null on a required-but-missing doc, memo ignoring an input
+- [ ] Rep 10 Share view (generate: `generator/GENERATE-REP.md`, REP=10; grade with the two-minute checklist below; run)
 - [ ] Rep 11 Deals board (generate, grade, run)
 - [ ] Rep 12 Notifications center (generate, grade, run)
 - [ ] Rep 13 Traveler profiles (generate, grade, run)

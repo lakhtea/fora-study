@@ -1,8 +1,8 @@
 # Rep cards for reps 07 to 25
 
-Reps 01 to 06 are built. Each card below is the design for one more rep, at the same standard: three compound bugs, observable within three steps, PM-voiced tickets, a key with the full format, verified by `npm run verify NN` and `npm run solution NN`. Generate them with `GENERATE-REP.md` in Claude Code, one at a time, in order. Classes are from the taxonomy in `GENERATE-REP.md`.
+Reps 01 to 09 are built (cards 07 to 09 are kept below for reference). Each remaining card is the design for one more rep, at the same standard: three compound bugs, observable within three steps, PM-voiced tickets, a key with the full format, verified by `npm run verify NN` and `npm run solution NN`. Generate them with `GENERATE-REP.md` in Claude Code, one at a time, in order. Classes are from the taxonomy in `GENERATE-REP.md`.
 
-Covered so far: E1 T3 D3 | L1 T1 E6 | R1 T6 D1 | E2 T2 D5 | E4 T4 D2 | R3 T5 E8. The cards finish the taxonomy by rep 19 and then repeat the highest-value classes in new settings.
+Covered so far: E1 T3 D3 | L1 T1 E6 | R1 T6 D1 | E2 T2 D5 | E4 T4 D2 | R3 T5 E8 | E5 T7 D4 | F1 T3 D6 | M1 T1 D6. The cards finish the taxonomy by rep 19 and then repeat the highest-value classes in new settings.
 
 **07 trips-timeline** (page: a client's trips on a timeline with a search box and a detail drawer). A: E5 delay instead of debounce, with a visible "requests sent" counter so the per-keystroke firing is felt. B: T7 prop contract mismatch: the drawer's `onClose` is passed as `onDismiss`, child typed with an optional prop, so Close does nothing. C: D4 date-only strings parsed as UTC midnight, trips show one day early for a New York user; the London colleague sees it right.
 
