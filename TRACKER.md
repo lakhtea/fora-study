@@ -23,10 +23,10 @@ Protocol and budget: `interviews/round-1-debugging.md`. Each rep: 30-minute time
 - [ ] Rep 07 Trips timeline: delay instead of debounce, two optional names for one prop, date-only string parsed as UTC
 - [ ] Rep 08 Payout dashboard: controlled-then-uncontrolled input, string id through a union type, memo missing a dependency
 - [ ] Rep 09 Supplier onboarding: memo defeated by inline props, non-null on a required-but-missing doc, memo ignoring an input
-- [ ] Rep 10 Share view (generate: `generator/GENERATE-REP.md`, REP=10; grade with the two-minute checklist below; run)
-- [ ] Rep 11 Deals board (generate, grade, run)
-- [ ] Rep 12 Notifications center (generate, grade, run)
-- [ ] Rep 13 Traveler profiles (generate, grade, run)
+- [ ] Rep 10 Client share view: setState during render, a 410 collapsed into an empty trip, day-switch race
+- [ ] Rep 11 Supplier deals: state read right after setting it, [object Object] from a lying type, sort mutating the featured strip
+- [ ] Rep 12 Notifications: effect depending on the state it sets, option values vs the union, concatenating reduce
+- [ ] Rep 13 Traveler profiles (generate: `generator/GENERATE-REP.md`, REP=13; grade with the two-minute checklist below; run)
 - [ ] Rep 14 Room blocks (generate, grade, run)
 - [ ] Rep 15 Price alerts (generate, grade, run)
 - [ ] Rep 16 Commission rules (generate, grade, run)
