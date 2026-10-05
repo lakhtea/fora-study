@@ -26,10 +26,10 @@ Protocol and budget: `interviews/round-1-debugging.md`. Each rep: 30-minute time
 - [ ] Rep 10 Client share view: setState during render, a 410 collapsed into an empty trip, day-switch race
 - [ ] Rep 11 Supplier deals: state read right after setting it, [object Object] from a lying type, sort mutating the featured strip
 - [ ] Rep 12 Notifications: effect depending on the state it sets, option values vs the union, concatenating reduce
-- [ ] Rep 13 Traveler profiles (generate: `generator/GENERATE-REP.md`, REP=13; grade with the two-minute checklist below; run)
-- [ ] Rep 14 Room blocks (generate, grade, run)
-- [ ] Rep 15 Price alerts (generate, grade, run)
-- [ ] Rep 16 Commission rules (generate, grade, run)
+- [ ] Rep 13 Travelers: a hook inside a condition, an index signature promising every expiry, calendar-month counting at a boundary
+- [ ] Rep 14 Group rooms: a form that keeps state across a change of subject, two numbers in the wrong order, no path for a rejected request
+- [ ] Rep 15 Price Drop: a form submit with its default, a reference typed as a number, a date-only string parsed as UTC
+- [ ] Rep 16 Commission rules (generate: `generator/GENERATE-REP.md`, REP=16; grade with the two-minute checklist below; run)
 - [ ] Rep 17 Client import (generate, grade, run)
 - [ ] Rep 18 Messages thread (generate, grade, run)
 - [ ] Rep 19 Availability calendar (generate, grade, run). Every class in the taxonomy has now been seen once.
