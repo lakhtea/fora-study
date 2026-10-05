@@ -10,7 +10,11 @@ interface ClientTableProps {
   onSelect: (id: number) => void;
 }
 
-function sortClients(clients: Client[], key: SortKey, dir: "asc" | "desc"): Client[] {
+function sortClients(
+  clients: Client[],
+  key: SortKey,
+  dir: "asc" | "desc",
+): Client[] {
   const sorted = [...clients].sort((a, b) => {
     if (key === "lifetimeValue") return a.lifetimeValue - b.lifetimeValue;
     return String(a[key]).localeCompare(String(b[key]));
@@ -18,7 +22,14 @@ function sortClients(clients: Client[], key: SortKey, dir: "asc" | "desc"): Clie
   return dir === "asc" ? sorted : sorted.reverse();
 }
 
-export function ClientTable({ clients, sortKey, sortDir, selectedId, onSort, onSelect }: ClientTableProps) {
+export function ClientTable({
+  clients,
+  sortKey,
+  sortDir,
+  selectedId,
+  onSort,
+  onSelect,
+}: ClientTableProps) {
   const rows = sortClients(clients, sortKey, sortDir);
 
   const header = (key: SortKey, label: string) => (
@@ -50,7 +61,9 @@ export function ClientTable({ clients, sortKey, sortDir, selectedId, onSort, onS
         {rows.map((client) => (
           <tr
             key={client.id}
-            className={client.id === selectedId ? "clickable selected" : "clickable"}
+            className={
+              client.id === selectedId ? "clickable selected" : "clickable"
+            }
             onClick={() => onSelect(client.id)}
           >
             <td>
@@ -62,7 +75,11 @@ export function ClientTable({ clients, sortKey, sortDir, selectedId, onSort, onS
               <span className={`badge ${client.status}`}>{client.status}</span>
             </td>
             <td>{formatDate(client.createdAt)}</td>
-            <td>{client.destination ? `${client.destination}, ${client.nights} nights` : "None yet"}</td>
+            <td>
+              {client.lastBookingDestination
+                ? `${client.lastBookingDestination}, ${client.lastBookingNights} nights`
+                : "None yet"}
+            </td>
             <td>{money(client.lifetimeValue)}</td>
           </tr>
         ))}

@@ -5,12 +5,12 @@ interface RefreshIndicatorProps {
 }
 
 export function RefreshIndicator({ refreshedAt }: RefreshIndicatorProps) {
-  const [seconds, setSeconds] = useState(0);
+  const [now, setNow] = useState(Date.now());
 
   useEffect(() => {
-    setSeconds(0);
+    if (refreshedAt === null) return;
     const handle = setInterval(() => {
-      setSeconds(seconds + 1);
+      setNow(Date.now());
     }, 1000);
     return () => clearInterval(handle);
   }, [refreshedAt]);
@@ -18,5 +18,12 @@ export function RefreshIndicator({ refreshedAt }: RefreshIndicatorProps) {
   if (refreshedAt === null) {
     return <span className="muted">Loading clients</span>;
   }
-  return <span className="muted">Last refreshed {seconds}s ago</span>;
+
+  const seconds = Math.floor((now - refreshedAt) / 1000);
+
+  return (
+    <span className="muted">
+      Last refreshed {seconds > 0 ? seconds : 0}s ago
+    </span>
+  );
 }

@@ -24,8 +24,8 @@ export interface ClientRow extends ClientSummary {
 }
 
 export interface Client extends ClientSummary {
-  destination?: string;
-  nights?: number;
+  lastBookingDestination: string | null;
+  lastBookingNights: number | null;
 }
 
 export interface ClientDetail extends ClientSummary {
