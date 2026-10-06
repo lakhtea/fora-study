@@ -7,9 +7,14 @@ export interface Hotel {
   neighborhood: string;
 }
 
+interface Amenity {
+  code: string;
+  label: string;
+}
+
 export interface HotelDetail extends Hotel {
   description: string;
-  amenities: string[];
+  amenities: Amenity[];
   checkIn: string;
 }
 

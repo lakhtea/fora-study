@@ -20,7 +20,8 @@ export function HotelPanel({ hotelId }: { hotelId: number | null }) {
     };
   }, [hotelId]);
 
-  if (hotelId === null) return <div className="panel empty">Select a hotel to see details.</div>;
+  if (hotelId === null)
+    return <div className="panel empty">Select a hotel to see details.</div>;
   if (!detail) return <div className="panel empty">Loading hotel</div>;
 
   return (
@@ -36,7 +37,9 @@ export function HotelPanel({ hotelId }: { hotelId: number | null }) {
         <dt>Check-in</dt>
         <dd>{detail.checkIn}</dd>
         <dt>Amenities</dt>
-        <dd aria-label="Amenities">{detail.amenities.join(", ")}</dd>
+        <dd aria-label="Amenities">
+          {detail.amenities.map((amenity) => amenity.label).join(", ")}
+        </dd>
       </dl>
     </div>
   );

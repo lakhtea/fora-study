@@ -30,15 +30,22 @@ export default function App() {
     return () => {
       cancelled = true;
     };
-  }, [query]);
+  }, [query, city, minStars]);
 
   const handleQueryChange = useCallback((value: string) => setQuery(value), []);
 
   const toggleShortlist = (hotel: Hotel) => {
-    setShortlist((current) => (current.some((h) => h.id === hotel.id) ? current.filter((h) => h.id !== hotel.id) : [...current, hotel]));
+    setShortlist((current) =>
+      current.some((h) => h.id === hotel.id)
+        ? current.filter((h) => h.id !== hotel.id)
+        : [...current, hotel],
+    );
   };
 
-  const scope = [city || "all cities", minStars ? `${minStars}+ stars` : "any rating"].join(", ");
+  const scope = [
+    city || "all cities",
+    minStars ? `${minStars}+ stars` : "any rating",
+  ].join(", ");
 
   return (
     <div className="page">
@@ -50,12 +57,30 @@ export default function App() {
           </div>
         </div>
       </header>
-      <Filters city={city} minStars={minStars} onQueryChange={handleQueryChange} onCityChange={setCity} onMinStarsChange={setMinStars} />
+      <Filters
+        city={city}
+        minStars={minStars}
+        onQueryChange={handleQueryChange}
+        onCityChange={setCity}
+        onMinStarsChange={setMinStars}
+      />
       <div className="layout">
-        <ResultList hotels={hotels} loading={loading} selectedId={selectedId} shortlistIds={shortlist.map((h) => h.id)} onSelect={setSelectedId} onToggleShortlist={toggleShortlist} />
+        <ResultList
+          hotels={hotels}
+          loading={loading}
+          selectedId={selectedId}
+          shortlistIds={shortlist.map((h) => h.id)}
+          onSelect={setSelectedId}
+          onToggleShortlist={toggleShortlist}
+        />
         <div className="stack">
           <HotelPanel hotelId={selectedId} />
-          <Shortlist hotels={shortlist} onRemove={(id) => setShortlist((current) => current.filter((h) => h.id !== id))} />
+          <Shortlist
+            hotels={shortlist}
+            onRemove={(id) =>
+              setShortlist((current) => current.filter((h) => h.id !== id))
+            }
+          />
         </div>
       </div>
     </div>
