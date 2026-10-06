@@ -12,7 +12,9 @@ function nightsBetween(checkIn: string, checkOut: string): number {
   if (!checkIn || !checkOut) return 0;
   const [y1, m1, d1] = checkIn.split("-").map(Number);
   const [y2, m2, d2] = checkOut.split("-").map(Number);
-  return Math.round((Date.UTC(y2, m2 - 1, d2) - Date.UTC(y1, m1 - 1, d1)) / 86400000);
+  return Math.round(
+    (Date.UTC(y2, m2 - 1, d2) - Date.UTC(y1, m1 - 1, d1)) / 86400000,
+  );
 }
 
 export default function App() {
@@ -36,8 +38,10 @@ export default function App() {
   const nights = nightsBetween(checkIn, checkOut);
 
   const handleAddRoom = () => {
-    rooms.push({ type: "standard", guests: 2 });
-    setRooms(rooms);
+    setRooms((prev) => {
+      const next = [...prev, { type: "standard", guests: 2 }];
+      return next;
+    });
   };
 
   const handleRoomChange = (index: number, room: Room) => {
@@ -70,7 +74,13 @@ export default function App() {
       </div>
       <div className="layout">
         <div>
-          {step === 0 && <TravelerStep traveler={traveler} onChange={setTraveler} onNext={() => setStep(1)} />}
+          {step === 0 && (
+            <TravelerStep
+              traveler={traveler}
+              onChange={setTraveler}
+              onNext={() => setStep(1)}
+            />
+          )}
           {step === 1 && (
             <RoomsStep
               roomTypes={roomTypes}
@@ -84,7 +94,15 @@ export default function App() {
               onNext={() => setStep(2)}
             />
           )}
-          {step === 2 && <ReviewStep traveler={traveler} checkIn={checkIn} checkOut={checkOut} rooms={rooms} onBack={() => setStep(1)} />}
+          {step === 2 && (
+            <ReviewStep
+              traveler={traveler}
+              checkIn={checkIn}
+              checkOut={checkOut}
+              rooms={rooms}
+              onBack={() => setStep(1)}
+            />
+          )}
         </div>
         <Summary rooms={rooms} roomTypes={roomTypes} nights={nights} />
       </div>

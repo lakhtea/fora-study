@@ -11,7 +11,13 @@ interface ReviewStepProps {
   onBack: () => void;
 }
 
-export function ReviewStep({ traveler, checkIn, checkOut, rooms, onBack }: ReviewStepProps) {
+export function ReviewStep({
+  traveler,
+  checkIn,
+  checkOut,
+  rooms,
+  onBack,
+}: ReviewStepProps) {
   const [quote, setQuote] = useState<Quote | null>(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -37,7 +43,9 @@ export function ReviewStep({ traveler, checkIn, checkOut, rooms, onBack }: Revie
   const confirm = async () => {
     setSubmitting(true);
     try {
-      setConfirmation(await createBooking(traveler, checkIn, checkOut, rooms, total));
+      setConfirmation(
+        await createBooking(traveler, checkIn, checkOut, rooms, total),
+      );
     } finally {
       setSubmitting(false);
     }
@@ -46,7 +54,8 @@ export function ReviewStep({ traveler, checkIn, checkOut, rooms, onBack }: Revie
   if (confirmation) {
     return (
       <div className="notice" role="status">
-        Booking confirmed. Reference {confirmation.reference}, total {moneyCents(confirmation.total)}.
+        Booking confirmed. Reference {confirmation.reference}, total{" "}
+        {moneyCents(confirmation.total)}.
       </div>
     );
   }
@@ -63,7 +72,11 @@ export function ReviewStep({ traveler, checkIn, checkOut, rooms, onBack }: Revie
           {formatDate(checkIn)} to {formatDate(checkOut)}
         </dd>
         <dt>Rooms</dt>
-        <dd>{rooms.map((r, i) => `Room ${i + 1}: ${r.type}, ${r.guests} guests`).join("; ")}</dd>
+        <dd>
+          {rooms
+            .map((r, i) => `Room ${i + 1}: ${r.type}, ${r.guests} guests`)
+            .join("; ")}
+        </dd>
         <dt>Per night</dt>
         <dd>{loading ? "Pricing" : moneyCents(nightlyTotal)}</dd>
         <dt>Taxes</dt>
@@ -77,7 +90,12 @@ export function ReviewStep({ traveler, checkIn, checkOut, rooms, onBack }: Revie
         <button type="button" className="secondary" onClick={onBack}>
           Back
         </button>
-        <button type="button" className="primary" onClick={confirm} disabled={loading || submitting}>
+        <button
+          type="button"
+          className="primary"
+          onClick={confirm}
+          disabled={loading || submitting}
+        >
           {submitting ? "Confirming" : "Confirm booking"}
         </button>
       </div>
