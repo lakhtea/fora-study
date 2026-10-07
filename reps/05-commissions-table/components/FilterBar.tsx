@@ -6,21 +6,48 @@ interface FilterBarProps {
 }
 
 export function FilterBar({ filters, onChange }: FilterBarProps) {
+  const STATUS_OPTIONS: { value: StatusFilter; label: string }[] = [
+    { value: "all", label: "All statuses" },
+    { value: "paid", label: "Paid" },
+    { value: "pending", label: "Pending" },
+    { value: "void", label: "Void" },
+  ];
+  function isStatusFilter(value: string): value is StatusFilter {
+    return STATUS_OPTIONS.some((o) => o.value === value);
+  }
   return (
     <div className="toolbar">
-      <select value={filters.status} onChange={(e) => onChange({ ...filters, status: e.target.value as StatusFilter })} aria-label="Status">
-        <option value="all">All statuses</option>
-        <option value="Paid">Paid</option>
-        <option value="Pending">Pending</option>
-        <option value="Void">Void</option>
+      <select
+        value={filters.status}
+        onChange={(e) => {
+          if (isStatusFilter(e.target.value))
+            onChange({ ...filters, status: e.target.value });
+        }}
+        aria-label="Status"
+      >
+        {STATUS_OPTIONS.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
       </select>
       <label className="muted">
         Travel from{" "}
-        <input type="date" value={filters.from} onChange={(e) => onChange({ ...filters, from: e.target.value })} aria-label="Travel from" />
+        <input
+          type="date"
+          value={filters.from}
+          onChange={(e) => onChange({ ...filters, from: e.target.value })}
+          aria-label="Travel from"
+        />
       </label>
       <label className="muted">
         to{" "}
-        <input type="date" value={filters.to} onChange={(e) => onChange({ ...filters, to: e.target.value })} aria-label="Travel to" />
+        <input
+          type="date"
+          value={filters.to}
+          onChange={(e) => onChange({ ...filters, to: e.target.value })}
+          aria-label="Travel to"
+        />
       </label>
       <span className="muted">(inclusive)</span>
     </div>
